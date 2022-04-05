@@ -4,42 +4,16 @@ import { peace } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
 
 function App() {
-  const [navVisible, setNavVisible] = useState(false);
-  const [rVisible, setRVisible] = useState(false);
-  const [bVisible, setBVisible] = useState(false);
-  const [lVisible, setLVisible] = useState(false);
   const [githubVisible, setGithubVisible] = useState(false);
-  const [youtubeVisible, setYoutubeVisible] = useState(false);
-  const [instaVisible, setInstaVisible] = useState(false);
-  const [twitterVisible, setLTwitterisible] = useState(false);
   const [inVisible, setInVisible] = useState(false);
+  const [homeVisible, setHomeVisible] = useState(false);
+  const [worldVisible, setWorldVisible] = useState(false);
 
   setTimeout(() => {
-    setNavVisible(true);
+    setHomeVisible(true);
     setTimeout(() => {
-      setBVisible(true);
-      setTimeout(() => {
-        setRVisible(true);
-        setTimeout(() => {
-          setLVisible(true);
-          setTimeout(() => {
-            setInVisible(true);
-            setTimeout(() => {
-              setLTwitterisible(true);
-              setTimeout(() => {
-                setInstaVisible(true);
-                setTimeout(() => {
-                  setYoutubeVisible(true);
-                  setTimeout(() => {
-                    setGithubVisible(true);
-                  }, 100);
-                }, 100);
-              }, 100);
-            }, 100);
-          }, 300);
-        }, 300);
-      }, 300);
-    }, 1300);
+      setWorldVisible(true);
+    }, 1000);
   }, 3050);
 
   //bg color
@@ -57,87 +31,28 @@ function App() {
 
   return (
     <div className="App scroll-m-96">
-      <nav
-        className={`fixed top-0 w-screen h-20 bg-white shadow-md z-50 animate-fadeInShadow animation-delay-3000 flex items-center justify-between px-5 ${
-          !navVisible && "invisible"
-        } `}
-      >
-        <div className="font- text-3xl font-extrabold drop-shadow-3xl text-white relative mb-9 cursor-pointer">
-          <span
-            className={` ${
-              !bVisible && "invisible"
-            } animate-fadeInFromLeft absolute animation-delay-4300 z-[54]`}
+      <div className="flex flex-col items-center justify-center absolute top-0 left-0">
+        <div className="w-7">
+          <a
+            className={`animate-fadeInBigSmall absolute animation-delay-5100  ${
+              !inVisible && "invisible"
+            }`}
+            href="https://www.linkedin.com/in/birol-ayg%C3%BCn-89a346222"
           >
-            B
-          </span>
-          <span
-            className={` ${
-              !rVisible && "invisible"
-            } animate-fadeInFromLeft absolute left-5 animation-delay-4600 z-[53]`}
-          >
-            R
-          </span>
-          <span
-            className={` ${
-              !lVisible && "invisible"
-            } animate-fadeInFromLeft absolute left-10 animation-delay-4900 z-[52]`}
-          >
-            L
-          </span>
+            <i className="fab fa-2x fa-linkedin-in"></i>{" "}
+          </a>
         </div>
-        <div className="space-x-4 flex mb-7">
-          <div className="w-7">
-            <a
-              className={`animate-fadeInDown absolute animation-delay-5100  ${
-                !inVisible && "invisible"
-              }`}
-              href="https://www.linkedin.com/in/birol-ayg%C3%BCn-89a346222"
-            >
-              <i className="fab fa-2x fa-linkedin-in"></i>{" "}
-            </a>
-          </div>
-          <div className="w-7">
-            <a
-              className={`animate-fadeInDown absolute animation-delay-5200 ${
-                !twitterVisible && "invisible"
-              }`}
-              href="https://twitter.com/BirolAygun2?t=gTKDKjr6X27lBL-L9pWHKA&s=09"
-            >
-              <i className="fab fa-2x fa-twitter"></i>
-            </a>
-          </div>
-          <div className="w-7">
-            <a
-              className={`animate-fadeInDown absolute animation-delay-5300 ${
-                !instaVisible && "invisible"
-              }`}
-              href="https://instagram.com/birolaygun2?utm_medium=copy_link"
-            >
-              <i className="fab fa-2x fa-instagram"></i>
-            </a>
-          </div>
-          <div className="w-8">
-            <a
-              className={`animate-fadeInDown absolute animation-delay-5400 ${
-                !youtubeVisible && "invisible"
-              }`}
-              href="https://www.youtube.com/channel/UCRnkf1wfBNBPRm7NoSf4PoA"
-            >
-              <i className="fab fa-youtube fa-2x"></i>{" "}
-            </a>
-          </div>
-          <div className="w-7">
-            <a
-              className={`animate-fadeInDown absolute animation-delay-5500  ${
-                !githubVisible && "invisible"
-              }`}
-              href="https://github.com/birolaygun"
-            >
-              <i className="fab fa-2x fa-github"></i>{" "}
-            </a>
-          </div>
+        <div>
+          <a
+            className={`animate-fadeInBigSmall absolute animation-delay-5500  ${
+              !githubVisible && "invisible"
+            }`}
+            href="https://github.com/birolaygun"
+          >
+            <i className="fab fa-2x fa-github"></i>{" "}
+          </a>
         </div>
-      </nav>
+      </div>
 
       <FullPage>
         <Slide>
@@ -146,7 +61,26 @@ function App() {
             <div id="secondBlock" className=" bg-black w-1/2 h-screen "></div>
 
             <div className="absolute  w-0 h-screen left-1/2 flex justify-center animate-fadeInDown ">
-              <p className="rounded-full absolute  p-1 bg-white">{peace}</p>
+              <p className="rounded-full absolute rotate-180 p-1 bg-white">
+                {peace}
+              </p>
+            </div>
+            <div className="flex absolute top-0 w-screen font-bold mt-2">
+              <div
+                className={`flex-grow text-right w-1/2 ${
+                  !homeVisible && "invisible"
+                } `}
+              >
+                Peace at home
+              </div>
+              <div className="w-20 "></div>
+              <div
+                className={` flex-grow text-white w-1/2 ${
+                  !worldVisible && "invisible"
+                }`}
+              >
+                Peace in the World
+              </div>
             </div>
           </div>
         </Slide>
