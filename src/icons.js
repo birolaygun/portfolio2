@@ -1,11 +1,10 @@
 export const peace = (
   <svg
-    className="bg-white rounded-full "
+    className="bg-white rounded-full bi bi-yin-yang"
     xmlns="http://www.w3.org/2000/svg"
     width="35"
     height="35"
     fill="currentColor"
-    class="bi bi-yin-yang"
     viewBox="0 0 16 16"
   >
     <path d="M9.167 4.5a1.167 1.167 0 1 1-2.334 0 1.167 1.167 0 0 1 2.334 0Z" />

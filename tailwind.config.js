@@ -18,15 +18,15 @@ module.exports = {
       14: "16000ms",
       15: "20000ms",
       3000: "3000ms",
-      4300: "4300ms",
-      4600: "4600ms",
-      4900: "4900ms",
+      3800: "3800ms",
+      3900: "3900ms",
+      4000: "4000ms",
 
-      5100: "5100ms",
-      5200: "5200ms",
-      5300: "5300ms",
-      5400: "5400ms",
-      5500: "5500ms"
+      4100: "4100ms",
+      4200: "4200ms",
+      4300: "4300ms",
+      4400: "4400ms",
+      5500: "5500ms",
     },
     extend: {
       dropShadow: {
@@ -110,6 +110,25 @@ module.exports = {
             transform: "scela(100%)",
           },
         },
+        fromLeft: {
+          "0%": {
+            transform: "translateX(-100%)",
+          },
+
+          "100%": {
+            transform: "translateX(0%)",
+          },
+        },
+
+        fromRight: {
+          "0%": {
+            transform: "translateX(100%)",
+          },
+
+          "100%": {
+            transform: "translateX(0%)",
+          },
+        },
       },
       animation: {
         slideInLeft: "slideInLeft 500ms",
@@ -119,6 +138,8 @@ module.exports = {
         fadeInShadow: "fadeInShadow 1000ms ",
         fadeInFromLeft: "fadeInFromLeft 300ms ",
         fadeInBigSmall: "fadeInBigSmall 1000ms ",
+        fromLeft: "fromLeft 500ms ",
+        fromRight: "fromRight 500ms ",
       },
     },
   },
