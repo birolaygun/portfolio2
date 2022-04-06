@@ -29,8 +29,15 @@ module.exports = {
       4800: "4800ms",
     },
     extend: {
+      colors: {
+        bg: {
+          50: "#1f1f38",
+          100: "#2c2c6c",
+        },
+      },
       boxShadow: {
-        button: "0px 2px 4px 0px rgba(255,255,255 0.12), 0px 2px 16px 0px rgba(255,255,255 0.32)",
+        button:
+          "0px 2px 4px 0px rgba(255,255,255 0.12), 0px 2px 16px 0px rgba(255,255,255 0.32)",
       },
       dropShadow: {
         "3xl": "0 0 3px rgb(0, 0, 0)",

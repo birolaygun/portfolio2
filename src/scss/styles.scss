@@ -38,7 +38,35 @@ section:nth-child(3n) {
   background-color: tomato;
 }
 
-.bgg{
-  background: rgb(99,99,99);
-background: radial-gradient(circle, rgba(99,99,99,1) 0%, rgba(255,255,255,1) 94%);
+.bgg {
+  background: rgb(99, 99, 99);
+  background: radial-gradient(
+    circle,
+    rgba(99, 99, 99, 1) 0%,
+    rgba(255, 255, 255, 1) 94%
+  );
+}
+
+.full-page-controls {
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0vw;
+  z-index: 5000;
+  height: 100vh;
+  button {
+    font-size: 1.3rem;
+  }
+  button:nth-child(1),
+  button:nth-last-child(1) {
+    transform: rotate(90deg);
+    font-size: 2rem !important;
+    margin-left: 9px;
+  }
+}
+#secondSlide {
+  background-image: url(../../src/galery/birol.gif);
 }

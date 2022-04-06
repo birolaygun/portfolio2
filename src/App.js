@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { peace, github, linkedIn } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
 import myPhoto from "../src/galery/Brl_Web.gif";
-import ReactTypingEffect from "react-typing-effect";
 import Photo from "./components/Photo";
 import Hello from "./components/Hello";
 
@@ -56,7 +55,7 @@ function App() {
 
   return (
     <div className="App scroll-m-96">
-      <FullPage>
+      <FullPage controls>
         <Slide>
           <div className="w-screen h-screen flex bg-orange-600 relative">
             <div
@@ -77,21 +76,6 @@ function App() {
               className=" bg-black w-1/2 h-screen flex flex-col items-center justify-center"
             >
               <div className="w-1/2 max-w-xs flex flex-col items-center justify-center text-white ">
-                {/* <ReactTypingEffect
-                  className="bg-white"
-                  text={["Hello.", "I'm Birol Aygün"]}
-                  cursorRenderer={(cursor) => <h1>{cursor}</h1>}
-                  displayTextRenderer={(text, i) => {
-                    return (
-                      <h1 className="">
-                        {text.split("").map((char, i) => {
-                          const key = `${i}`;
-                          return <span key={key}>{char}</span>;
-                        })}
-                      </h1>
-                    );
-                  }}
-                /> */}
                 <div
                   className={`hidden md:block ${
                     !blocksVisible && "invisible"
@@ -193,12 +177,11 @@ function App() {
                 </div>
               </div>
             </div>
-
-
           </div>
         </Slide>
         <Slide>
-          <h1>Another slide content</h1>
+          <div id="secondSlide" className="secondSlide w-full h-full bg-bg-100"></div>
+          
         </Slide>
       </FullPage>
     </div>
