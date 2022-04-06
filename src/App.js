@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Mains from "./Mains";
-import { peace } from "./icons.js";
+import { peace, github, linkedIn } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
-import myPhoto from "../src/galery/Brl.jpg"
+import myPhoto from "../src/galery/Brl_Web.gif";
+import ReactTypingEffect from "react-typing-effect";
 
 function App() {
   const [githubVisible, setGithubVisible] = useState(false);
@@ -33,7 +34,7 @@ function App() {
         }, 100);
       }, 100);
     }, 800);
-  }, 3020);
+  }, 3050);
 
   //bg color
 
@@ -53,11 +54,44 @@ function App() {
       <FullPage>
         <Slide>
           <div className="w-screen h-screen flex bg-orange-600 relative">
-            <div id="firsBlock" className=" bg-white w-1/2 h-screen ">
-              <img src={myPhoto} alt="" />
+            <div
+              id="firsBlock"
+              className=" bg-white w-1/2 h-screen flex flex-col items-center justify-center "
+            >
+              <div className="w-1/2 max-w-xs flex flex-col items-center justify-center">
+                <div className=" rounded-lg ">
+                  <img className="rounded-lg" src={myPhoto} alt="" />
+                </div>{" "}
+                <p className=" w-full text-center p-3 font-bold">
+                  Do you want to work with me ?
+                </p>
+                <button className="bg-[#c3c8dc] p-2 rounded-md hover:bg-[#b5bbd1]">
+                  Contact
+                </button>
+              </div>
             </div>
-            <div id="secondBlock" className=" bg-black w-1/2 h-screen ">
-              {" "}
+
+            <div
+              id="secondBlock"
+              className=" bg-black w-1/2 h-screen flex flex-col items-center justify-center"
+            >
+              <div className="w-1/2 max-w-xs flex flex-col items-center justify-center">
+                <ReactTypingEffect
+                  className="bg-white"
+                  text={["Hello.", "I'm Birol Aygün"]}
+                  cursorRenderer={(cursor) => <h1>{cursor}</h1>}
+                  displayTextRenderer={(text, i) => {
+                    return (
+                      <h1 className="">
+                        {text.split("").map((char, i) => {
+                          const key = `${i}`;
+                          return <span key={key}>{char}</span>;
+                        })}
+                      </h1>
+                    );
+                  }}
+                />
+              </div>{" "}
               <div className="flex flex-col items-center justify-center absolute text-white  space-y-3 right-4 bottom-1/4">
                 <div
                   className={`animate-fromRight animation-delay-3800 border-r-2 w-1 h-8 ${
@@ -73,7 +107,7 @@ function App() {
                     className={`   `}
                     href="https://www.linkedin.com/in/birol-ayg%C3%BCn-89a346222"
                   >
-                    <i className="fab fa-x fa-linkedin-in"></i>{" "}
+                    {linkedIn}{" "}
                   </a>
                 </div>
                 <div
@@ -81,9 +115,7 @@ function App() {
                     !githubVisible && "invisible"
                   }`}
                 >
-                  <a href="https://github.com/birolaygun">
-                    <i className="fab fa-x fa-github"></i>{" "}
-                  </a>
+                  <a href="https://github.com/birolaygun">{github}</a>
                 </div>
 
                 <div

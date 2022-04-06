@@ -37,4 +37,9 @@ section:nth-child(2n) {
 section:nth-child(3n) {
   background-color: tomato;
 }
+
+.bgg {
+  background: #636363;
+  background: radial-gradient(circle, #636363 0%, white 94%);
+}
 /*# sourceMappingURL=styles.css.map */

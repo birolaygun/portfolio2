@@ -38,3 +38,7 @@ section:nth-child(3n) {
   background-color: tomato;
 }
 
+.bgg{
+  background: rgb(99,99,99);
+background: radial-gradient(circle, rgba(99,99,99,1) 0%, rgba(255,255,255,1) 94%);
+}
