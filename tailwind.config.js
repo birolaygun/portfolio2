@@ -26,9 +26,12 @@ module.exports = {
       4200: "4200ms",
       4300: "4300ms",
       4400: "4400ms",
-      5500: "5500ms",
+      4800: "4800ms",
     },
     extend: {
+      boxShadow: {
+        button: "0px 2px 4px 0px rgba(255,255,255 0.12), 0px 2px 16px 0px rgba(255,255,255 0.32)",
+      },
       dropShadow: {
         "3xl": "0 0 3px rgb(0, 0, 0)",
       },

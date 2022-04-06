@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import Mains from "./Mains";
 import { peace, github, linkedIn } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
 import myPhoto from "../src/galery/Brl_Web.gif";
 import ReactTypingEffect from "react-typing-effect";
+import Photo from "./components/Photo";
+import Hello from "./components/Hello";
 
 function App() {
   const [githubVisible, setGithubVisible] = useState(false);
@@ -13,6 +14,7 @@ function App() {
   const [thirdIVisible, setThirdIVisible] = useState(false);
   const [fourdIVisible, setFourdIVisible] = useState(false);
   const [homeVisible, setHomeVisible] = useState(false);
+  const [blocksVisible, setBlocksVisible] = useState(false);
 
   setTimeout(() => {
     setHomeVisible(true);
@@ -28,6 +30,9 @@ function App() {
               setThirdIVisible(true);
               setTimeout(() => {
                 setFourdIVisible(true);
+                setTimeout(() => {
+                  setBlocksVisible(true);
+                }, 500);
               }, 100);
             }, 100);
           }, 100);
@@ -58,16 +63,12 @@ function App() {
               id="firsBlock"
               className=" bg-white w-1/2 h-screen flex flex-col items-center justify-center "
             >
-              <div className="w-1/2 max-w-xs flex flex-col items-center justify-center">
-                <div className=" rounded-lg ">
-                  <img className="rounded-lg" src={myPhoto} alt="" />
-                </div>{" "}
-                <p className=" w-full text-center p-3 font-bold">
-                  Do you want to work with me ?
-                </p>
-                <button className="bg-[#c3c8dc] p-2 rounded-md hover:bg-[#b5bbd1]">
-                  Contact
-                </button>
+              <div
+                className={`hidden md:block w-1/2 max-w-xs ${
+                  !blocksVisible && "invisible"
+                } animate-fadeIn animation-delay-4800`}
+              >
+                <Photo />
               </div>
             </div>
 
@@ -75,8 +76,8 @@ function App() {
               id="secondBlock"
               className=" bg-black w-1/2 h-screen flex flex-col items-center justify-center"
             >
-              <div className="w-1/2 max-w-xs flex flex-col items-center justify-center">
-                <ReactTypingEffect
+              <div className="w-1/2 max-w-xs flex flex-col items-center justify-center text-white ">
+                {/* <ReactTypingEffect
                   className="bg-white"
                   text={["Hello.", "I'm Birol Aygün"]}
                   cursorRenderer={(cursor) => <h1>{cursor}</h1>}
@@ -90,9 +91,16 @@ function App() {
                       </h1>
                     );
                   }}
-                />
+                /> */}
+                <div
+                  className={`hidden md:block ${
+                    !blocksVisible && "invisible"
+                  } animate-fadeIn animation-delay-4800`}
+                >
+                  <Hello />
+                </div>
               </div>{" "}
-              <div className="flex flex-col items-center justify-center absolute text-white  space-y-3 right-4 bottom-1/4">
+              <div className="z-20 flex flex-col items-center justify-center absolute text-white  space-y-3 right-4 bottom-1/4">
                 <div
                   className={`animate-fromRight animation-delay-3800 border-r-2 w-1 h-8 ${
                     !firstIVisible && "invisible"
@@ -162,7 +170,31 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="w-10/12 right- h-full bg-red-400 absolute opacity-50 md:hidden"></div>
+
+            <div
+              className="w-full right- h-full absolute  md:hidden flex flex-col 
+            justify-center items-center "
+            >
+              <div className="flex flex-col justify-center items-center">
+                <div
+                  className={`${
+                    !blocksVisible && "invisible"
+                  } animate-fadeIn animation-delay-4800`}
+                >
+                  <Hello />
+                </div>
+
+                <div
+                  className={` w-1/2 max-w-xs ${
+                    !blocksVisible && "invisible"
+                  } animate-fadeIn animation-delay-4800`}
+                >
+                  <Photo />
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </Slide>
         <Slide>
