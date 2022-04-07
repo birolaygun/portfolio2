@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { peace, github, linkedIn } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
-import myPhoto from "../src/galery/Brl_Web.gif";
 import Photo from "./components/Photo";
 import Hello from "./components/Hello";
+import { useInView } from "react-intersection-observer";
 
 function App() {
   const [githubVisible, setGithubVisible] = useState(false);
@@ -18,29 +18,30 @@ function App() {
   setTimeout(() => {
     setHomeVisible(true);
     setTimeout(() => {
-      setFirstIVisible(true);
+      document.querySelector(".full-page-controls").style.opacity = "1";
       setTimeout(() => {
-        setInVisible(true);
+        setFirstIVisible(true);
         setTimeout(() => {
-          setGithubVisible(true);
+          setInVisible(true);
           setTimeout(() => {
-            setSeconIVisible(true);
+            setGithubVisible(true);
             setTimeout(() => {
-              setThirdIVisible(true);
+              setSeconIVisible(true);
               setTimeout(() => {
-                setFourdIVisible(true);
+                setThirdIVisible(true);
                 setTimeout(() => {
-                  setBlocksVisible(true);
-                }, 500);
+                  setFourdIVisible(true);
+                  setTimeout(() => {
+                    setBlocksVisible(true);
+                  }, 500);
+                }, 100);
               }, 100);
             }, 100);
           }, 100);
         }, 100);
-      }, 100);
-    }, 800);
-  }, 3050);
-
-  //bg color
+      }, 200);
+    }, 600);
+  }, 3060);
 
   window.addEventListener("scroll", () => {
     let opacity = window.window.scrollY / window.innerHeight;
@@ -55,9 +56,77 @@ function App() {
 
   return (
     <div className="App scroll-m-96">
-      <FullPage controls>
+      <div
+        className={`z-50 flex flex-col items-center justify-center fixed text-white  space-y-3 right-1 top-1/2 bg-black p-3 py-7 rounded-full ${
+          !firstIVisible && "opacity-0"
+        }`}
+      >
+        <div
+          className={`animate-fromRight animation-delay-3800 border-r-2 w-1 h-8 ${
+            !firstIVisible && "opacity-0"
+          }`}
+        ></div>
+        <div
+          className={`pt-3 animate-fromRight animation-delay-3900 ${
+            !inVisible && "invisible"
+          }`}
+        >
+          <a
+            className={`   `}
+            href="https://www.linkedin.com/in/birol-ayg%C3%BCn-89a346222"
+          >
+            {linkedIn}{" "}
+          </a>
+        </div>
+        <div
+          className={`pb-3 animate-fromRight animation-delay-4000  ${
+            !githubVisible && "invisible"
+          }`}
+        >
+          <a href="https://github.com/birolaygun">{github}</a>
+        </div>
+
+        <div
+          className={` animate-fromRight animation-delay-4100 w-2 h-2 rounded-full bg-white  ${
+            !secondIVisible && "invisible"
+          }`}
+        ></div>
+
+        <div
+          className={` animate-fromRight animation-delay-4200 w-1 h-1 rounded-full bg-white  ${
+            !thirdIVisible && "invisible"
+          }`}
+        ></div>
+
+        <div
+          className={` animate-fromRight animation-delay-4300 -top-1 relative w-1 h-4  ${
+            !fourdIVisible && "invisible"
+          }`}
+        >
+          |
+        </div>
+      </div>
+      <FullPage
+        controls
+        beforeChange={(e) => {
+          if (document.querySelector(".full-page-controls button")) {
+            let all = document.querySelectorAll(".full-page-controls button");
+
+            for (var x = 0; x < all.length; x++) {
+              all[x].style.backgroundColor = "transparent";
+            }
+          }
+        }}
+        afterChange={(e) => {
+          if (document.querySelector(".full-page-controls button")) {
+            document.querySelector(
+              ".full-page-controls button:nth-child(" + (e.to + 2) + ")"
+            ).style.backgroundColor = "rgb(228, 228, 228)";
+          }
+        }}
+      >
         <Slide>
-          <div className="w-screen h-screen flex bg-orange-600 relative">
+          <div className="w-screen h-screen flex bg-bg-100 relative">
             <div
               id="firsBlock"
               className=" bg-white w-1/2 h-screen flex flex-col items-center justify-center "
@@ -84,52 +153,6 @@ function App() {
                   <Hello />
                 </div>
               </div>{" "}
-              <div className="z-20 flex flex-col items-center justify-center absolute text-white  space-y-3 right-4 bottom-1/4">
-                <div
-                  className={`animate-fromRight animation-delay-3800 border-r-2 w-1 h-8 ${
-                    !firstIVisible && "invisible"
-                  }`}
-                ></div>
-                <div
-                  className={`pt-3 animate-fromRight animation-delay-3900 ${
-                    !inVisible && "invisible"
-                  }`}
-                >
-                  <a
-                    className={`   `}
-                    href="https://www.linkedin.com/in/birol-ayg%C3%BCn-89a346222"
-                  >
-                    {linkedIn}{" "}
-                  </a>
-                </div>
-                <div
-                  className={`pb-3 animate-fromRight animation-delay-4000  ${
-                    !githubVisible && "invisible"
-                  }`}
-                >
-                  <a href="https://github.com/birolaygun">{github}</a>
-                </div>
-
-                <div
-                  className={` animate-fromRight animation-delay-4100 w-2 h-2 rounded-full bg-white  ${
-                    !secondIVisible && "invisible"
-                  }`}
-                ></div>
-
-                <div
-                  className={` animate-fromRight animation-delay-4200 w-1 h-1 rounded-full bg-white  ${
-                    !thirdIVisible && "invisible"
-                  }`}
-                ></div>
-
-                <div
-                  className={` animate-fromRight animation-delay-4300 -top-1 relative w-1 h-4  ${
-                    !fourdIVisible && "invisible"
-                  }`}
-                >
-                  |
-                </div>
-              </div>
             </div>
             <div className="absolute  w-0 h-screen left-1/2 flex justify-center animate-fadeInDown  z-10 ">
               <p className="rounded-full absolute rotate-180 p-1 bg-white">
@@ -180,8 +203,10 @@ function App() {
           </div>
         </Slide>
         <Slide>
-          <div id="secondSlide" className="secondSlide w-full h-full bg-bg-100"></div>
-          
+          <div
+            id="secondSlide"
+            className="secondSlide w-full h-full bg-bg-100"
+          ></div>
         </Slide>
       </FullPage>
     </div>

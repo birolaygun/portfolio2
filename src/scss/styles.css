@@ -44,7 +44,7 @@ section:nth-child(3n) {
 }
 
 .full-page-controls {
-  visibility: hidden;
+  opacity: 0%;
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,11 +61,30 @@ section:nth-child(3n) {
           align-items: center;
   left: 0vw;
   z-index: 5000;
-  height: 100vh;
+  background: white;
+  bottom: 50%;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 100px;
+  margin-left: 5px;
 }
 
 .full-page-controls button {
   font-size: 1.3rem;
+  border-radius: 100px;
+  height: 25px;
+  width: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2px;
 }
 
 .full-page-controls button:nth-child(1),
@@ -73,10 +92,10 @@ section:nth-child(3n) {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   font-size: 2rem !important;
-  margin-left: 9px;
+  margin-left: 11px;
 }
 
 #secondSlide {
-  background-image: url(../../src/galery/birol.gif);
+  background-image: url(../../src/galery/bg.svg);
 }
 /*# sourceMappingURL=styles.css.map */

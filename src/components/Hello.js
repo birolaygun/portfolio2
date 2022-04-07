@@ -7,8 +7,8 @@ const Hello = () => {
     <div className="flex flex-col items-center justify-center">
       <div className="bg-white rounded-md px-4 shadow-black  shadow-md md:shadow-none md:bg-black flex flex-col ">
         <ReactTypingEffect
-          speed={"150"}
-          eraseSpeed={"150"}
+          speed={"100"}
+          eraseSpeed={"100"}
           eraseDelay={"3000"}
           typingDelay={"1000"}
           className="py-9 font-bold w-full text-center"

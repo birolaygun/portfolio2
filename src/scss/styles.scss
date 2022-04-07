@@ -48,7 +48,7 @@ section:nth-child(3n) {
 }
 
 .full-page-controls {
-  visibility: hidden;
+  opacity: 0%;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -56,17 +56,30 @@ section:nth-child(3n) {
   align-items: center;
   left: 0vw;
   z-index: 5000;
-  height: 100vh;
+  background: rgb(255, 255, 255);
+  bottom: 50%;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 100px;
+  margin-left: 5px;
   button {
     font-size: 1.3rem;
+    border-radius: 100px;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
   }
   button:nth-child(1),
   button:nth-last-child(1) {
     transform: rotate(90deg);
     font-size: 2rem !important;
-    margin-left: 9px;
+    margin-left: 11px;
   }
 }
 #secondSlide {
-  background-image: url(../../src/galery/birol.gif);
+  background-image: url(../../src/galery/bg.svg);
 }
