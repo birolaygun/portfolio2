@@ -67,12 +67,15 @@ function App() {
       opacity - 1
     );
 
-    if (opacity > 2) {
+    if (opacity > 2 && document.getElementById("secondSlide")) {
       document.getElementById("secondSlide").style.opacity = Math.abs(0);
     }
-    document.getElementById("secondSlide").style.opacity = Math.abs(
-      opacity - 2
-    );
+
+    if (document.getElementById("secondSlide")) {
+      document.getElementById("secondSlide").style.opacity = Math.abs(
+        opacity - 2
+      );
+    }
   });
 
   if (scrolll) {
@@ -89,7 +92,7 @@ function App() {
       const observerr = new IntersectionObserver((e) => {
         e.forEach((entry) => {
           entry.target.classList.toggle(
-            "animate-fromLeft",
+            "animate-fromLeftTwo",
             entry.isIntersecting
           );
         });
@@ -100,7 +103,7 @@ function App() {
       const observerl = new IntersectionObserver((e) => {
         e.forEach((entry) => {
           entry.target.classList.toggle(
-            "animate-fromRight",
+            "animate-fromRightTwo",
             entry.isIntersecting
           );
         });
@@ -110,7 +113,7 @@ function App() {
   }
 
   return (
-    <div className="App scroll-m-96">
+    <div className="App ">
       <div
         className={`z-50 flex flex-col items-center justify-center fixed text-white  space-y-3 right-1 top-1/2 bg-black p-3 py-7 rounded-full ${
           !firstIVisible && "opacity-0"
@@ -265,21 +268,21 @@ function App() {
               id="secondSlide"
               className="secondSlide w-full h-full bg-bg-100 px-10"
             >
-              <header>
-                <h1 className="h-1/6 cardFadeIn text-center font-bold p-5 pb-2 text-white text-3xl">
+              <header className="">
+                <h1 className="h-1/6 text-center font-bold p-5 pb-2 text-white text-3xl">
                   About Me
                 </h1>
-                <h2 className="cardFadeIn text-center font-bold  text-gray-300 text-sm">
+                <h2 className=" text-center font-bold  text-gray-300 text-sm">
                   my introduction
                 </h2>
               </header>
               <div className="h-5/6 flex flex-col md:flex-row justify-center">
-                <div className="  self-start cardFromLeft w-full md:w-1/2 p-4">
+                <div className=" self-start md:w-1/2 p-4">
                   {" "}
                   <Intro />{" "}
                 </div>
 
-                <div className="self-center w-full md:w-1/2 p-4">
+                <div className="self-center md:w-1/2 p-4">
                   <div className="computer cardFromRight ">
                     <div>
                       <label>HTML 5</label>{" "}

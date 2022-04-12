@@ -1,7 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-
     fontFamily: {
       sans: ["Hind Siliguri", "sans-serif"],
       title: ["Verdana", "sans-serif"],
@@ -29,7 +28,7 @@ module.exports = {
         bg: {
           50: "#1f1f38",
           100: "#2c2c6c",
-          150: "#4cb5f6"
+          150: "#4cb5f6",
         },
       },
       boxShadow: {
@@ -136,6 +135,25 @@ module.exports = {
             transform: "translateX(0%)",
           },
         },
+        fromLeftTwo: {
+          "0%": {
+            transform: "translateX(-50%)",
+          },
+
+          "100%": {
+            transform: "translateX(0%)",
+          },
+        },
+
+        fromRightTwo: {
+          "0%": {
+            transform: "translateX(50%)",
+          },
+
+          "100%": {
+            transform: "translateX(0%)",
+          },
+        },
 
         fromBottom: {
           "0%": {
@@ -148,7 +166,6 @@ module.exports = {
             opacity: 1,
           },
         },
-       
       },
       animation: {
         slideInLeft: "slideInLeft 500ms",
@@ -160,6 +177,8 @@ module.exports = {
         fadeInBigSmall: "fadeInBigSmall 1000ms ",
         fromLeft: "fromLeft 500ms ",
         fromRight: "fromRight 500ms ",
+        fromLeftTwo: "fromLeftTwo 500ms ",
+        fromRightTwo: "fromRightTwo 500ms ",
         fromBottom: "fromBottom 500ms ",
       },
     },
