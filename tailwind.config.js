@@ -1,11 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    // colors: {
-    //   transparant: "rgba(69, 111, 225, 0)",
-    //   blue: "rgb(69, 111, 225)",
-    //   white: "#FBF8F1",
-    // },Lucida Console
+
     fontFamily: {
       sans: ["Hind Siliguri", "sans-serif"],
       title: ["Verdana", "sans-serif"],
@@ -33,6 +29,7 @@ module.exports = {
         bg: {
           50: "#1f1f38",
           100: "#2c2c6c",
+          150: "#4cb5f6"
         },
       },
       boxShadow: {
@@ -139,10 +136,23 @@ module.exports = {
             transform: "translateX(0%)",
           },
         },
+
+        fromBottom: {
+          "0%": {
+            transform: "translateY(100%)",
+            opacity: 0,
+          },
+
+          "100%": {
+            transform: "translateY(0%)",
+            opacity: 1,
+          },
+        },
+       
       },
       animation: {
         slideInLeft: "slideInLeft 500ms",
-        fadeIn: "fadeIn 500ms",
+        fadeIn: "fadeIn 1000ms",
         fadeInDown: "fadeInDown 3000ms",
         show: "show 25000ms linear infinite",
         fadeInShadow: "fadeInShadow 1000ms ",
@@ -150,6 +160,7 @@ module.exports = {
         fadeInBigSmall: "fadeInBigSmall 1000ms ",
         fromLeft: "fromLeft 500ms ",
         fromRight: "fromRight 500ms ",
+        fromBottom: "fromBottom 500ms ",
       },
     },
   },

@@ -5,7 +5,7 @@ import ReactTypingEffect from "react-typing-effect";
 const Hello = () => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="bg-white rounded-md px-4 shadow-black  shadow-md md:shadow-none md:bg-black flex flex-col ">
+      <div className="bg-white rounded-md w-64 shadow-black  shadow-md md:shadow-none md:bg-black flex flex-col ">
         <ReactTypingEffect
           speed={"100"}
           eraseSpeed={"100"}

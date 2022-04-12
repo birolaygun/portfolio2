@@ -2,12 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { peace, github, linkedIn } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
 import Photo from "./components/Photo";
+import insta from "./galery/instaOk.gif";
+import whatapp from "./galery/whatappOk.gif";
+import portfolio from "./galery/portfolioOk.gif";
+import currency from "./galery/currencyOk.gif";
 import Hello from "./components/Hello";
-import { useInView } from "react-intersection-observer";
+import Intro from "./components/Intro";
+import Bests from "./components/Bests.js";
 
 function App() {
   const [githubVisible, setGithubVisible] = useState(false);
   const [inVisible, setInVisible] = useState(false);
+  const [scrolll, setScrolll] = useState(false);
   const [firstIVisible, setFirstIVisible] = useState(false);
   const [secondIVisible, setSeconIVisible] = useState(false);
   const [thirdIVisible, setThirdIVisible] = useState(false);
@@ -18,7 +24,6 @@ function App() {
   setTimeout(() => {
     setHomeVisible(true);
     setTimeout(() => {
-      document.querySelector(".full-page-controls").style.opacity = "1";
       setTimeout(() => {
         setFirstIVisible(true);
         setTimeout(() => {
@@ -31,8 +36,15 @@ function App() {
                 setThirdIVisible(true);
                 setTimeout(() => {
                   setFourdIVisible(true);
+
                   setTimeout(() => {
                     setBlocksVisible(true);
+                    setTimeout(() => {
+                      setScrolll(true);
+                      document.querySelector(
+                        ".full-page-controls"
+                      ).style.opacity = "1";
+                    }, 1000);
                   }, 500);
                 }, 100);
               }, 100);
@@ -46,13 +58,56 @@ function App() {
   window.addEventListener("scroll", () => {
     let opacity = window.window.scrollY / window.innerHeight;
     if (opacity > 1) {
-      opacity = 1;
+      document.getElementById("firsBlock").style.opacity = Math.abs(0);
+      document.getElementById("secondBlock").style.opacity = Math.abs(0);
     }
+
     document.getElementById("firsBlock").style.opacity = Math.abs(opacity - 1);
     document.getElementById("secondBlock").style.opacity = Math.abs(
       opacity - 1
     );
+
+    if (opacity > 2) {
+      document.getElementById("secondSlide").style.opacity = Math.abs(0);
+    }
+    document.getElementById("secondSlide").style.opacity = Math.abs(
+      opacity - 2
+    );
   });
+
+  if (scrolll) {
+    setTimeout(() => {
+      const cardFadeIn = document.querySelectorAll(".cardFadeIn");
+      const observer = new IntersectionObserver((e) => {
+        e.forEach((entry) => {
+          entry.target.classList.toggle("animate-fadeIn", entry.isIntersecting);
+        });
+      });
+      cardFadeIn.forEach((cr) => observer.observe(cr));
+
+      const cardFromLeft = document.querySelectorAll(".cardFromLeft");
+      const observerr = new IntersectionObserver((e) => {
+        e.forEach((entry) => {
+          entry.target.classList.toggle(
+            "animate-fromLeft",
+            entry.isIntersecting
+          );
+        });
+      });
+      cardFromLeft.forEach((cr) => observerr.observe(cr));
+
+      const cardFromRight = document.querySelectorAll(".cardFromRight");
+      const observerl = new IntersectionObserver((e) => {
+        e.forEach((entry) => {
+          entry.target.classList.toggle(
+            "animate-fromRight",
+            entry.isIntersecting
+          );
+        });
+      });
+      cardFromRight.forEach((cr) => observerl.observe(cr));
+    }, 50);
+  }
 
   return (
     <div className="App scroll-m-96">
@@ -125,6 +180,7 @@ function App() {
           }
         }}
       >
+        {/* first */}
         <Slide>
           <div className="w-screen h-screen flex bg-bg-100 relative">
             <div
@@ -165,7 +221,7 @@ function App() {
                     !homeVisible && "invisible"
                   } `}
                 >
-                  Peace at home
+                  Peace is happiness
                 </div>
                 <div className="w-20 "></div>
                 <div
@@ -173,7 +229,7 @@ function App() {
                     !homeVisible && "invisible"
                   }`}
                 >
-                  Peace in the World
+                  without all it
                 </div>
               </div>
             </div>
@@ -202,12 +258,276 @@ function App() {
             </div>
           </div>
         </Slide>
-        <Slide>
-          <div
-            id="secondSlide"
-            className="secondSlide w-full h-full bg-bg-100"
-          ></div>
-        </Slide>
+        {/* second */}
+        {scrolll && (
+          <Slide className=" w-full h-full bg-orange-500 ">
+            <div
+              id="secondSlide"
+              className="secondSlide w-full h-full bg-bg-100 px-10"
+            >
+              <header>
+                <h1 className="h-1/6 cardFadeIn text-center font-bold p-5 pb-2 text-white text-3xl">
+                  About Me
+                </h1>
+                <h2 className="cardFadeIn text-center font-bold  text-gray-300 text-sm">
+                  my introduction
+                </h2>
+              </header>
+              <div className="h-5/6 flex flex-col md:flex-row justify-center">
+                <div className="  self-start cardFromLeft w-full md:w-1/2 p-4">
+                  {" "}
+                  <Intro />{" "}
+                </div>
+
+                <div className="self-center w-full md:w-1/2 p-4">
+                  <div className="computer cardFromRight ">
+                    <div>
+                      <label>HTML 5</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="90"
+                          disabled
+                        ></input>
+                        <span>90%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div>
+                      <label>CSS 3</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="80"
+                          disabled
+                        ></input>
+                        <span>80%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div>
+                      <label>SCSS</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="90"
+                          disabled
+                        ></input>
+                        <span>90%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div>
+                      <label>BootStrap</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="70"
+                          disabled
+                        ></input>
+                        <span>70%</span>
+                      </div>{" "}
+                    </div>
+                    <div>
+                      <label>TailWind</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="70"
+                          disabled
+                        ></input>
+                        <span>70%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div>
+                      <label>JavaScript</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="80"
+                          disabled
+                        ></input>
+                        <span>80%</span>
+                      </div>{" "}
+                    </div>
+                    <div>
+                      <label>TypeScript</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="60"
+                          disabled
+                        ></input>
+                        <span>60%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div>
+                      <label>React</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="80"
+                          disabled
+                        ></input>
+                        <span>80%</span>
+                      </div>{" "}
+                    </div>
+                    <div>
+                      <label>Next.js</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="70"
+                          disabled
+                        ></input>
+                        <span>70%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div>
+                      <label>Redux</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="80"
+                          disabled
+                        ></input>
+                        <span>80%</span>
+                      </div>{" "}
+                    </div>
+                    <div>
+                      <label>Recoil</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="80"
+                          disabled
+                        ></input>
+                        <span>80%</span>
+                      </div>{" "}
+                    </div>
+                    <div>
+                      <label>FireBase</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="40"
+                          disabled
+                        ></input>
+                        <span>40%</span>
+                      </div>{" "}
+                    </div>
+                    <div>
+                      <label>Git</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="60"
+                          disabled
+                        ></input>
+                        <span>60%</span>
+                      </div>{" "}
+                    </div>
+
+                    <div className=" invisible h-0 md:visible md:h-auto ">
+                      <label>Adobe Photoshop</label>{" "}
+                      <div className="flex items-center space-x-2">
+                        <input
+                          className="w-28 lg:w-64"
+                          type="range"
+                          value="60"
+                          disabled
+                        ></input>
+                        <span>60%</span>
+                      </div>{" "}
+                    </div>
+                    <div className=" invisible h-0 md:visible md:h-auto ">
+                      <label>Microsoft Office</label>{" "}
+                      <div className="flex items-center space-x-2 ">
+                        <input
+                          className="w-28 lg:w-64 "
+                          type="range"
+                          value="70"
+                          disabled
+                        ></input>
+                        <span>70%</span>
+                      </div>{" "}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Slide>
+        )}
+        {/* third */}
+        {scrolll && (
+          <Slide className=" w-full h-full bg-green-600 ">
+            <div
+              id="thirdSlide"
+              className="thirdSlide w-full h-full bg-orange-500 px-10"
+            >
+              <header>
+                <h1 className="h-1/6 cardFadeIn text-center font-bold p-5 pb-2 text-black text-3xl">
+                  My Projects
+                </h1>
+                <h2 className="cardFadeIn text-center font-bold  text-gray-800 ">
+                  the bests
+                </h2>
+              </header>
+              <div className="h-5/6 flex flex-col md:flex-row justify-center ">
+                <div className="flex flex-col justify-center items-center">
+                  <Bests img={insta} header="İnstagram" />
+                  <Bests img={whatapp} header="WhatsApp" />
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  <Bests img={currency} header="Currency" />
+                  <Bests img={portfolio} header="Portfolio" />
+                </div>
+              </div>
+            </div>
+          </Slide>
+        )}
+        {/* fourd */}
+        {scrolll && (
+          <Slide>
+            <div
+              id="secondSlide"
+              className="secondSlide w-full h-full bg-green-400"
+            >
+              <br />
+              <div className="cardFadeIn h-20 bg-white w-40 m-6 ml-16 ">
+                Welcome to <strong>The Box!</strong>
+              </div>
+
+              <div className="cardFromLeft h-20 bg-white w-40 m-6 ml-16 ">
+                Welcome to <strong>The Box!</strong>
+              </div>
+
+              <div className="cardFromLeft h-20 bg-white w-40 m-6 ml-16 ">
+                Welcome to <strong>The Box!</strong>
+              </div>
+
+              <div className="cardFromRight h-20 bg-white w-40 m-6 ml-16 ">
+                Welcome to <strong>The Box!</strong>
+              </div>
+            </div>
+          </Slide>
+        )}
       </FullPage>
     </div>
   );
