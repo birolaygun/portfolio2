@@ -92,7 +92,7 @@ module.exports = {
           },
           "100%": {
             opacity: 1,
-            transform: "scelaX(1)",
+            transform: "sceleX(1)",
           },
         },
         fadeInFromLeft: {
@@ -107,13 +107,15 @@ module.exports = {
         },
         fadeInBigSmall: {
           "0%": {
-            transform: "scela(0%)",
+            opacity: 0,
+            transform: "scale(0%)",
           },
           "70%": {
-            transform: "scela(150%)",
+            transform: "scale(110%)",
           },
           "100%": {
-            transform: "scela(100%)",
+            opacity: 1,
+            transform: "scale(100%)",
           },
         },
         fromLeft: {
@@ -166,20 +168,29 @@ module.exports = {
             opacity: 1,
           },
         },
+        scaleXSpread: {
+          "0%": {
+            transform: "scaleX(0);",
+          },
+
+          "100%": {
+            transform: "scaleX(1);",
+          },
+        },
       },
       animation: {
         slideInLeft: "slideInLeft 500ms",
-        fadeIn: "fadeIn 1000ms",
+        fadeIn: "fadeIn 500ms",
         fadeInDown: "fadeInDown 3000ms",
         show: "show 25000ms linear infinite",
         fadeInShadow: "fadeInShadow 1000ms ",
         fadeInFromLeft: "fadeInFromLeft 300ms ",
-        fadeInBigSmall: "fadeInBigSmall 1000ms ",
+        fadeInBigSmall: "fadeInBigSmall 500ms ",
         fromLeft: "fromLeft 500ms ",
         fromRight: "fromRight 500ms ",
         fromLeftTwo: "fromLeftTwo 500ms ",
         fromRightTwo: "fromRightTwo 500ms ",
-        fromBottom: "fromBottom 500ms ",
+        scaleXSpread: "scaleXSpread 500ms ",
       },
     },
   },

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 let start = new Date(2021, 2, 20, 10, 33, 30, 0);
 let result = Math.floor((new Date() - start) / (1000 * 60 * 60 * 24 * 30));
 
-const Intro = () => {
+const Intro = (props) => {
   const [publicRepo, setPublicRepo] = useState(27);
+
 
   useEffect(() => {
     axios.get("https://api.github.com/users/birolaygun").then((data) => {
@@ -13,7 +14,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className=" ">
       <p className="cardFromLeft text-gray-300 font-semibold text-sm md:text-base">
         I started learning software {result} months ago. I didn't know anything
         about it but I was interested. I learned with udemy courses and

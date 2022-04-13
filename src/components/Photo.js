@@ -2,9 +2,21 @@ import React from "react";
 import myPhoto from "../../src/galery/Brl_Web.gif";
 import { contact } from "../icons";
 
-const Photo = () => {
+const Photo = (props) => {
+  if (props.scrolll) {
+    setTimeout(() => {
+      const cardFadeIn = document.querySelectorAll(".cardFadeIn");
+      const observer = new IntersectionObserver((e) => {
+        e.forEach((entry) => {
+          entry.target.classList.toggle("animate-fadeIn", entry.isIntersecting);
+        });
+      });
+      cardFadeIn.forEach((cr) => observer.observe(cr));
+    }, 50);
+  }
+
   return (
-    <div className=" max-w-xs flex flex-col items-center justify-center">
+    <div className="cardFadeIn max-w-xs flex flex-col items-center justify-center">
       <div className=" rounded-lg mt-7 md:mt-0 ">
         <img className="rounded-lg" src={myPhoto} alt="" />
       </div>{" "}
@@ -15,6 +27,10 @@ const Photo = () => {
         Do you want to work with me ?
       </p>
       <button
+        onClick={() => {
+          document.querySelector(".full-page-controls button:nth-last-child(2)")
+            .click()
+        }}
         className="p-3 mt-2 bg-black text-white 
       font-semibold rounded-md hover:bg-white hover:text-black shadow-white hover:shadow-black
        hover:shadow-button shadow-md md:shadow-none flex items-center space-x-3"

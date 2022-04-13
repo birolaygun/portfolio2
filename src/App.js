@@ -1,14 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import { peace, github, linkedIn } from "./icons.js";
+import { peace, github, linkedIn, whatsapp, mail } from "./icons.js";
 import { FullPage, Slide } from "react-full-page";
 import Photo from "./components/Photo";
 import insta from "./galery/instaOk.gif";
 import whatapp from "./galery/whatappOk.gif";
 import portfolio from "./galery/portfolioOk.gif";
 import currency from "./galery/currencyOk.gif";
+import light from "./galery/light-bulb.png";
+import star from "./galery/star.png";
+import strong from "./galery/strong.png";
 import Hello from "./components/Hello";
 import Intro from "./components/Intro";
 import Bests from "./components/Bests.js";
+import Others from "./components/Others.js";
+import Form from "./components/Form.js";
 
 function App() {
   const [githubVisible, setGithubVisible] = useState(false);
@@ -20,7 +25,6 @@ function App() {
   const [fourdIVisible, setFourdIVisible] = useState(false);
   const [homeVisible, setHomeVisible] = useState(false);
   const [blocksVisible, setBlocksVisible] = useState(false);
-
   setTimeout(() => {
     setHomeVisible(true);
     setTimeout(() => {
@@ -57,15 +61,19 @@ function App() {
 
   window.addEventListener("scroll", () => {
     let opacity = window.window.scrollY / window.innerHeight;
-    if (opacity > 1) {
+    if (opacity > 1 && document.getElementById("firsBlock")) {
       document.getElementById("firsBlock").style.opacity = Math.abs(0);
       document.getElementById("secondBlock").style.opacity = Math.abs(0);
     }
 
-    document.getElementById("firsBlock").style.opacity = Math.abs(opacity - 1);
-    document.getElementById("secondBlock").style.opacity = Math.abs(
-      opacity - 1
-    );
+    if (document.getElementById("firsBlock")) {
+      document.getElementById("firsBlock").style.opacity = Math.abs(
+        opacity - 1
+      );
+      document.getElementById("secondBlock").style.opacity = Math.abs(
+        opacity - 1
+      );
+    }
 
     if (opacity > 2 && document.getElementById("secondSlide")) {
       document.getElementById("secondSlide").style.opacity = Math.abs(0);
@@ -74,6 +82,36 @@ function App() {
     if (document.getElementById("secondSlide")) {
       document.getElementById("secondSlide").style.opacity = Math.abs(
         opacity - 2
+      );
+    }
+
+    if (opacity > 3 && document.getElementById("thirdSlide")) {
+      document.getElementById("thirdSlide").style.opacity = Math.abs(0);
+    }
+
+    if (document.getElementById("thirdSlide")) {
+      document.getElementById("thirdSlide").style.opacity = Math.abs(
+        opacity - 3
+      );
+    }
+
+    if (opacity > 4 && document.getElementById("fourdSlide")) {
+      document.getElementById("fourdSlide").style.opacity = Math.abs(0);
+    }
+
+    if (document.getElementById("fourdSlide")) {
+      document.getElementById("fourdSlide").style.opacity = Math.abs(
+        opacity - 4
+      );
+    }
+
+    if (opacity > 5 && document.getElementById("fifthSlide")) {
+      document.getElementById("fifthSlide").style.opacity = Math.abs(0);
+    }
+
+    if (document.getElementById("fifthSlide")) {
+      document.getElementById("fifthSlide").style.opacity = Math.abs(
+        opacity - 5
       );
     }
   });
@@ -113,7 +151,7 @@ function App() {
   }
 
   return (
-    <div className="App ">
+    <div className="App relative">
       <div
         className={`z-50 flex flex-col items-center justify-center fixed text-white  space-y-3 right-1 top-1/2 bg-black p-3 py-7 rounded-full ${
           !firstIVisible && "opacity-0"
@@ -187,15 +225,15 @@ function App() {
         <Slide>
           <div className="w-screen h-screen flex bg-bg-100 relative">
             <div
-              id="firsBlock"
+              id="firsBlock "
               className=" bg-white w-1/2 h-screen flex flex-col items-center justify-center "
             >
               <div
                 className={`hidden md:block w-1/2 max-w-xs ${
                   !blocksVisible && "invisible"
-                } animate-fadeIn animation-delay-4800`}
+                } animate-fadeIn animation-delay-4800 `}
               >
-                <Photo />
+                <Photo scrolll={scrolll} />
               </div>
             </div>
 
@@ -205,11 +243,11 @@ function App() {
             >
               <div className="w-1/2 max-w-xs flex flex-col items-center justify-center text-white ">
                 <div
-                  className={`hidden md:block ${
+                  className={`hidden md:block  ${
                     !blocksVisible && "invisible"
                   } animate-fadeIn animation-delay-4800`}
                 >
-                  <Hello />
+                  <Hello scrolll={scrolll}  />
                 </div>
               </div>{" "}
             </div>
@@ -247,7 +285,7 @@ function App() {
                     !blocksVisible && "invisible"
                   } animate-fadeIn animation-delay-4800`}
                 >
-                  <Hello />
+                  <Hello scrolll={scrolll}  />
                 </div>
 
                 <div
@@ -255,7 +293,7 @@ function App() {
                     !blocksVisible && "invisible"
                   } animate-fadeIn animation-delay-4800`}
                 >
-                  <Photo />
+                  <Photo scrolll={scrolll} />
                 </div>
               </div>
             </div>
@@ -494,12 +532,12 @@ function App() {
               </header>
               <div className="h-5/6 flex flex-col md:flex-row justify-center ">
                 <div className="flex flex-col justify-center items-center">
-                  <Bests img={insta} header="İnstagram" />
-                  <Bests img={whatapp} header="WhatsApp" />
+                  <Bests scrolll={scrolll} img={insta} header="İnstagram" />
+                  <Bests scrolll={scrolll} img={whatapp} header="WhatsApp" />
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <Bests img={currency} header="Currency" />
-                  <Bests img={portfolio} header="Portfolio" />
+                  <Bests scrolll={scrolll} img={currency} header="Currency" />
+                  <Bests scrolll={scrolll} img={portfolio} header="Portfolio" />
                 </div>
               </div>
             </div>
@@ -507,30 +545,141 @@ function App() {
         )}
         {/* fourd */}
         {scrolll && (
-          <Slide>
+          <Slide className=" w-full h-full bg-violet-700 ">
             <div
-              id="secondSlide"
-              className="secondSlide w-full h-full bg-green-400"
+              id="fourdSlide"
+              className="fourdSlide w-full h-full bg-green-600 px-10"
             >
-              <br />
-              <div className="cardFadeIn h-20 bg-white w-40 m-6 ml-16 ">
-                Welcome to <strong>The Box!</strong>
-              </div>
-
-              <div className="cardFromLeft h-20 bg-white w-40 m-6 ml-16 ">
-                Welcome to <strong>The Box!</strong>
-              </div>
-
-              <div className="cardFromLeft h-20 bg-white w-40 m-6 ml-16 ">
-                Welcome to <strong>The Box!</strong>
-              </div>
-
-              <div className="cardFromRight h-20 bg-white w-40 m-6 ml-16 ">
-                Welcome to <strong>The Box!</strong>
+              <header>
+                <h1 className="h-1/6 cardFadeIn text-center font-bold p-5 pb-2 text-black text-3xl">
+                  My Projects
+                </h1>
+                <h2 className="cardFadeIn text-center font-bold  text-gray-800 ">
+                  the others
+                </h2>
+              </header>
+              <div className="h-5/6  w-full flex flex-col items-center justify-center  ">
+                <div className=" w-full flex justify-center cardFromLeft ">
+                  {" "}
+                  <Others
+                    name={"Glomil"}
+                    link={"https://github.com/birolaygun/Glomil"}
+                    icon={star}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromRight">
+                  {" "}
+                  <Others
+                    name={"Portfolio"}
+                    link={"https://birolaygun2.netlify.app/"}
+                    icon={star}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromLeft">
+                  {" "}
+                  <Others
+                    name={"Introduction"}
+                    link={"https://github.com/birolaygun/-Personal"}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromRight">
+                  {" "}
+                  <Others
+                    name={"Stock Control"}
+                    link={"https://github.com/birolaygun/Stok-Takip"}
+                    icon={light}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromLeft">
+                  {" "}
+                  <Others
+                    name={"Police Car"}
+                    link={"https://github.com/birolaygun/Police-Car"}
+                    icon={strong}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromRight">
+                  {" "}
+                  <Others
+                    name={"Menu"}
+                    link={"https://github.com/birolaygun/Side-Bar-Menu"}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromLeft">
+                  {" "}
+                  <Others
+                    name={"Otoban Oto"}
+                    link={"https://github.com/birolaygun/otoban-oto"}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromRight">
+                  {" "}
+                  <Others
+                    name={"Countdown To Do"}
+                    link={"https://github.com/birolaygun/ToDoListWithCountdown"}
+                  />{" "}
+                </div>
+                <div className=" w-full flex justify-center cardFromLeft">
+                  {" "}
+                  <Others
+                    name={"Shopping"}
+                    link={
+                      "https://github.com/birolaygun/Book-Shopping-With-Redux"
+                    }
+                  />
+                </div>
+                <div className=" w-full flex justify-center cardFromRight">
+                  {" "}
+                  <Others
+                    name={"Calculate Currency"}
+                    link={"https://github.com/birolaygun/Guncel_Doviz_Hesapla"}
+                  />{" "}
+                </div>
               </div>
             </div>
           </Slide>
-        )}
+        )}{" "}
+        {scrolll && (
+          <Slide className=" w-full h-full  ">
+            <div
+              id="fifthSlide"
+              className="fifthSlide w-full h-full bg-violet-700 px-10"
+            >
+              <header>
+                <h1 className="h-1/6 cardFadeIn text-center font-bold p-5 pb-2 text-black text-3xl">
+                  Contact Me
+                </h1>
+              </header>
+              <div className="h-5/6 w-full  flex flex-col md:flex-row items-center justify-center">
+                <div className="w-full md:w-1/2  flex flex-col items-center justify-center p-5">
+                  <a
+                    href="mailto:mail@birolaygun.bilisim@gmail.com"
+                    className="cardFromLeft hover:shadow-xl  space-y-1 cursor-pointer h-32 w-3/5 min-w-[230px] m-4 bg-[#2a1d66] text-gray-200 flex items-center justify-center flex-col rounded-2xl shadow-md"
+                  >
+                    <div>{mail}</div>
+                    <h1>Email</h1>
+                    <h2>birolaygun.bilisim@gmail.com</h2>
+                    <p className="opacity-50 text-sm">Send a message</p>
+                  </a>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=905526570818&text=Hello from your Portfolio."
+                    rel="noreferrer"
+                    target="_blank"
+                    className="cardFromLeft hover:shadow-xl space-y-1 cursor-pointer h-32 w-3/5 min-w-[230px] m-4 bg-[#2a1d66] text-gray-200 flex items-center justify-center flex-col rounded-2xl shadow-md"
+                  >
+                    <div>{whatsapp}</div>
+                    <h1>WhatsApp</h1>
+                    <h2>+90 552 657 08 18</h2>
+                    <p className="opacity-50 text-sm">Send a message</p>
+                  </a>
+                </div>
+                <div className="p-5 w-full md:w-1/2 cardFromRight">
+                  <Form />
+                </div>
+              </div>
+            </div>
+          </Slide>
+        )}{" "}
       </FullPage>
     </div>
   );

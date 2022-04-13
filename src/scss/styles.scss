@@ -86,6 +86,12 @@ section:nth-child(3n) {
 #thirdSlide {
   background-image: url(../../src/galery/bgThree.svg);
 }
+#fourdSlide {
+  background-image: url(../../src/galery/bgFour.svg);
+}
+#fifthSlide {
+  background-image: url(../../src/galery/bgFifth.svg);
+}
 
 .computer > div {
   display: flex;
@@ -132,8 +138,8 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 #bestImg {
   position: absolute;
-  z-index: 1010;
-  width: calc(95% - 40px);
+  z-index: 40;
+  width: calc(94.5% - 40px);
   height: 63%;
   left: calc(3% + 20px);
   top: 4%;
@@ -141,7 +147,23 @@ input[type="range"]::-webkit-slider-runnable-track {
   background-image: linear-gradient(
     -225deg,
     #69d7ea 0%,
-    #eaccf8 48%,
-    #6654f1 100%
+    #f7d8a7 48%,
+    #547ef1 100%
   );
+  opacity: 0;
+
+  transition: opacity 1s ease-in-out;
+}
+
+#bests:hover #bestImg {
+  opacity: 100%;
+}
+textarea {
+  resize: none;
+}
+form * {
+  outline: none;
+}
+.dropdown{
+  transition: all 1s ease-in-out;
 }
