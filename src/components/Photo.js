@@ -3,20 +3,10 @@ import myPhoto from "../../src/galery/Brl_Web.gif";
 import { contact } from "../icons";
 
 const Photo = (props) => {
-  if (props.scrolll) {
-    setTimeout(() => {
-      const cardFadeIn = document.querySelectorAll(".cardFadeIn");
-      const observer = new IntersectionObserver((e) => {
-        e.forEach((entry) => {
-          entry.target.classList.toggle("animate-fadeIn", entry.isIntersecting);
-        });
-      });
-      cardFadeIn.forEach((cr) => observer.observe(cr));
-    }, 50);
-  }
+  
 
   return (
-    <div className="cardFadeIn max-w-xs flex flex-col items-center justify-center">
+    <div className=" max-w-xs flex flex-col items-center justify-center">
       <div className=" rounded-lg mt-7 md:mt-0 ">
         <img className="rounded-lg" src={myPhoto} alt="" />
       </div>{" "}

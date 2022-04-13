@@ -2,23 +2,11 @@ import React, { useState } from "react";
 import { download } from "../icons";
 import ReactTypingEffect from "react-typing-effect";
 
-const Hello = (props) => {
+const Hello = () => {
   const [dropDown, setDropDown] = useState(false);
 
-  if (props.scrolll) {
-    setTimeout(() => {
-      const cardFadeIn = document.querySelectorAll(".cardFadeIn");
-      const observer = new IntersectionObserver((e) => {
-        e.forEach((entry) => {
-          entry.target.classList.toggle("animate-fadeIn", entry.isIntersecting);
-        });
-      });
-      cardFadeIn.forEach((cr) => observer.observe(cr));
-    }, 50);
-  }
-
   return (
-    <div className="cardFadeIn flex flex-col items-center justify-center ">
+    <div className=" flex flex-col items-center justify-center ">
       <div className="bg-white rounded-md w-64 shadow-black  shadow-md md:shadow-none md:bg-black flex flex-col ">
         <ReactTypingEffect
           speed={"100"}
@@ -39,10 +27,10 @@ const Hello = (props) => {
             );
           }}
         />
-        <p className="cardFadeIn md:py-8 font-bold w-full text-center ">
+        <p className=" md:py-8 font-bold w-full text-center ">
           I'm Birol AYGÜN
         </p>
-        <p className="cardFadeIn py-9 font-bold w-full text-center ">
+        <p className=" py-9 font-bold w-full text-center ">
           I'm Front End Developer
         </p>
       </div>
@@ -51,7 +39,7 @@ const Hello = (props) => {
           onClick={() => {
             setDropDown(true);
           }}
-          className="cardFadeIn p-3 md:mt-24 mt-2 bg-white text-black 
+          className=" p-3 md:mt-24 mt-2 bg-white text-black 
       font-semibold rounded-md hover:bg-black hover:text-white 
       shadow-black hover:shadow-white hover:shadow-button shadow-md md:shadow-none flex items-center space-x-3"
         >
