@@ -2,7 +2,7 @@ import React from "react";
 import myPhoto from "../../src/galery/Brl_Web.gif";
 import { contact } from "../icons";
 
-const Photo = (props) => {
+const Photo = () => {
   
 
   return (
@@ -23,7 +23,7 @@ const Photo = (props) => {
         }}
         className="p-3 mt-2 bg-black text-white 
       font-semibold rounded-md hover:bg-white hover:text-black shadow-white hover:shadow-black
-       hover:shadow-button shadow-md md:shadow-none flex items-center space-x-3"
+       hover:shadow-button shadow-md md:shadow-none flex items-center space-x-3 "
       >
         <span>Contact</span> <span> {contact}</span>
       </button>

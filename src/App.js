@@ -15,6 +15,7 @@ import Bests from "./components/Bests.js";
 import Others from "./components/Others.js";
 import Form from "./components/Form.js";
 
+
 function App() {
   const [githubVisible, setGithubVisible] = useState(false);
   const [inVisible, setInVisible] = useState(false);
@@ -285,7 +286,7 @@ function App() {
                     !blocksVisible && "invisible"
                   } animate-fadeIn animation-delay-4800`}
                 >
-                  <Hello scrolll={scrolll}  />
+                  <Hello  />
                 </div>
 
                 <div
@@ -293,7 +294,7 @@ function App() {
                     !blocksVisible && "invisible"
                   } animate-fadeIn animation-delay-4800`}
                 >
-                  <Photo scrolll={scrolll} />
+                  <Photo />
                 </div>
               </div>
             </div>
@@ -448,7 +449,7 @@ function App() {
                         <span>80%</span>
                       </div>{" "}
                     </div>
-                    <div>
+                    <div className=" invisible h-0 md:visible md:h-auto ">
                       <label>Recoil</label>{" "}
                       <div className="flex items-center space-x-2">
                         <input
@@ -532,12 +533,12 @@ function App() {
               </header>
               <div className="h-5/6 flex flex-col md:flex-row justify-center ">
                 <div className="flex flex-col justify-center items-center">
-                  <Bests scrolll={scrolll} img={insta} header="İnstagram" />
-                  <Bests scrolll={scrolll} img={whatapp} header="WhatsApp" />
+                  <Bests img={insta} header="İnstagram" />
+                  <Bests img={whatapp} header="WhatsApp" />
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <Bests scrolll={scrolll} img={currency} header="Currency" />
-                  <Bests scrolll={scrolll} img={portfolio} header="Portfolio" />
+                  <Bests img={currency} header="Currency" />
+                  <Bests img={portfolio} header="Portfolio" />
                 </div>
               </div>
             </div>
@@ -639,6 +640,7 @@ function App() {
             </div>
           </Slide>
         )}{" "}
+        {/* fifth slide */}
         {scrolll && (
           <Slide className=" w-full h-full  ">
             <div
@@ -651,10 +653,10 @@ function App() {
                 </h1>
               </header>
               <div className="h-5/6 w-full  flex flex-col md:flex-row items-center justify-center">
-                <div className="w-full md:w-1/2  flex flex-col items-center justify-center p-5">
+                <div className="w-full md:w-1/2  flex flex-col items-center justify-center ">
                   <a
                     href="mailto:mail@birolaygun.bilisim@gmail.com"
-                    className="cardFromLeft hover:shadow-xl  space-y-1 cursor-pointer h-32 w-3/5 min-w-[230px] m-4 bg-[#2a1d66] text-gray-200 flex items-center justify-center flex-col rounded-2xl shadow-md"
+                    className="cardFromLeft hover:shadow-xl  space-y-1 cursor-pointer h-32 w-3/5 min-w-[230px] m-1 bg-[#2a1d66] text-gray-200 flex items-center justify-center flex-col rounded-2xl shadow-md"
                   >
                     <div>{mail}</div>
                     <h1>Email</h1>
@@ -665,7 +667,7 @@ function App() {
                     href="https://api.whatsapp.com/send?phone=905526570818&text=Hello from your Portfolio."
                     rel="noreferrer"
                     target="_blank"
-                    className="cardFromLeft hover:shadow-xl space-y-1 cursor-pointer h-32 w-3/5 min-w-[230px] m-4 bg-[#2a1d66] text-gray-200 flex items-center justify-center flex-col rounded-2xl shadow-md"
+                    className="cardFromLeft hover:shadow-xl space-y-1 cursor-pointer h-32 w-3/5 min-w-[230px] m-1 bg-[#2a1d66] text-gray-200 flex items-center justify-center flex-col rounded-2xl shadow-md"
                   >
                     <div>{whatsapp}</div>
                     <h1>WhatsApp</h1>

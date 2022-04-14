@@ -25,7 +25,7 @@ const Others = (props) => {
       <a className="w-full" target="_blank" href={props.link}>
         <div
           className=" bg-green-900 bg-opacity-40 text-white font-semibold w-full text-center
-      my-2 py-2 rounded-full border border-white "
+      my-1 py-2 rounded-full border border-white "
         >
           {" "}
           {props.name}

@@ -15,26 +15,26 @@ const Intro = (props) => {
 
   return (
     <div className=" ">
-      <p className="cardFromLeft text-gray-300 font-semibold text-sm md:text-base">
+      <p className="cardFromLeft text-gray-300 font-semibold text-xs sm:text-sm md:text-base">
         I started learning software {result} months ago. I didn't know anything
         about it but I was interested. I learned with udemy courses and
         different resources on the internet and I'm still learning.
       </p>
 
-      <div className=" cardFromLeft flex items-start justify-between mt-2 md:mt-9 space-x-1">
-        <div className="flex flex-col items-center justify-between bg-bg-150 w-24 md:p-3 rounded-lg">
+      <div className=" cardFromLeft flex items-start justify-evenly mt-2 md:mt-9 space-x-1 text-sm md:text-base">
+        <div className="flex flex-col items-center justify-between bg-bg-150 w-20 md:p-3 rounded-lg">
           <div className="font-bold text-2xl text-black">01+</div>
           <p className="text-center text-gray-700">
             Year <br /> Experiance
           </p>
         </div>
-        <div className="flex flex-col items-center justify-between bg-bg-150 w-24 md:p-3 rounded-lg">
+        <div className="flex flex-col items-center justify-between bg-bg-150 w-20 md:p-3 rounded-lg">
           <div className="font-bold text-2xl text-black">01</div>
           <p className="text-center text-gray-700">
             Proffessional <br /> Project
           </p>
         </div>
-        <div className="flex flex-col items-center justify-between bg-bg-150 w-24 md:p-3 rounded-lg">
+        <div className="flex flex-col items-center justify-between bg-bg-150 w-20 md:p-3 rounded-lg">
           <div className="font-bold text-2xl text-black">{publicRepo}+</div>
           <p className="text-center text-gray-700">
             Github <br /> Project

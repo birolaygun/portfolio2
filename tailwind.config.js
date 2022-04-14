@@ -177,6 +177,24 @@ module.exports = {
             transform: "scaleX(1);",
           },
         },
+        scaleXSpreadDwn: {
+          "0%": {
+            transform: "scaleX(0);",
+          },
+
+          "5%": {
+            transform: "scaleX(1);",
+          },
+          
+          "65%": {
+            transform: "scaleX(1);",
+          },
+
+          "100%": {
+            transform: "scaleX(0);",
+          },
+
+        },
       },
       animation: {
         slideInLeft: "slideInLeft 500ms",
@@ -191,6 +209,7 @@ module.exports = {
         fromLeftTwo: "fromLeftTwo 500ms ",
         fromRightTwo: "fromRightTwo 500ms ",
         scaleXSpread: "scaleXSpread 500ms ",
+        scaleXSpreadDwn: "scaleXSpreadDwn 10000ms ",
       },
     },
   },

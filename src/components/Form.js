@@ -38,7 +38,7 @@ const Form = () => {
       {" "}
       <form
         ref={form}
-        className="flex items-center justify-center flex-col space-y-3"
+        className="flex items-center justify-center flex-col space-y-1"
         // onSubmit={(e) => {
         //   if (name && email && message) {
         //     sendEmail();
@@ -86,7 +86,7 @@ const Form = () => {
           name="message"
           id="message"
           cols="30"
-          rows="5"
+          rows="4"
         ></textarea>
         <button
           type="submit"
