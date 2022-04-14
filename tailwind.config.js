@@ -139,7 +139,7 @@ module.exports = {
         },
         fromLeftTwo: {
           "0%": {
-            transform: "translateX(-50%)",
+            transform: "translateX(-20%)",
           },
 
           "100%": {
@@ -149,7 +149,7 @@ module.exports = {
 
         fromRightTwo: {
           "0%": {
-            transform: "translateX(50%)",
+            transform: "translateX(20%)",
           },
 
           "100%": {

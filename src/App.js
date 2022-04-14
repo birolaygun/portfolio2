@@ -149,6 +149,17 @@ function App() {
       });
       cardFromRight.forEach((cr) => observerl.observe(cr));
     }, 50);
+
+    const cardZoom = document.querySelectorAll(".cardZoom");
+      const observerqq = new IntersectionObserver((e) => {
+        e.forEach((entry) => {
+          entry.target.classList.toggle(
+            "animate-fadeInBigSmall",
+            entry.isIntersecting
+          );
+        });
+      });
+      cardZoom.forEach((cr) => observerqq.observe(cr));
   }
 
   return (
@@ -226,7 +237,7 @@ function App() {
         <Slide>
           <div className="w-screen h-screen flex bg-bg-100 relative">
             <div
-              id="firsBlock "
+              id="firsBlock"
               className=" bg-white w-1/2 h-screen flex flex-col items-center justify-center "
             >
               <div

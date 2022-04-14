@@ -3,9 +3,7 @@ import { search } from "../../src/icons.js";
 import star from "../galery/star.png";
 
 const Bests = (props) => {
-  
   if (props.scrolll) {
-
     setTimeout(() => {
       const cardZoom = document.querySelectorAll(".cardZoom");
       const observer = new IntersectionObserver((e) => {
@@ -23,7 +21,7 @@ const Bests = (props) => {
   return (
     <div
       id="bests"
-      className=" group flex items-center justify-center flex-col m-2 md:m-3 cursor-pointer cardZoom"
+      className=" group flex items-center justify-center flex-col m-2 md:m-3 cursor-pointer cardZoom "
     >
       <div className=" relative ">
         <img
