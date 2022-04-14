@@ -110,9 +110,7 @@ module.exports = {
             opacity: 0,
             transform: "scale(0%)",
           },
-          "70%": {
-            transform: "scale(110%)",
-          },
+
           "100%": {
             opacity: 1,
             transform: "scale(100%)",
@@ -139,7 +137,7 @@ module.exports = {
         },
         fromLeftTwo: {
           "0%": {
-            transform: "translateX(-20%)",
+            transform: "translateX(-10%)",
           },
 
           "100%": {
@@ -149,7 +147,7 @@ module.exports = {
 
         fromRightTwo: {
           "0%": {
-            transform: "translateX(20%)",
+            transform: "translateX(10%)",
           },
 
           "100%": {
@@ -185,7 +183,7 @@ module.exports = {
           "5%": {
             transform: "scaleX(1);",
           },
-          
+
           "65%": {
             transform: "scaleX(1);",
           },
@@ -193,7 +191,6 @@ module.exports = {
           "100%": {
             transform: "scaleX(0);",
           },
-
         },
       },
       animation: {

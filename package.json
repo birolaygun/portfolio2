@@ -16,7 +16,7 @@
     "react-intersection-observer": "^8.33.1",
     "react-observing": "^2.5.14",
     "react-page-scroller": "^2.2.1",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "react-scroll": "^1.8.6",
     "react-typing-effect": "^2.0.5",

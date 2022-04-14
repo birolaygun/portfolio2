@@ -3,25 +3,10 @@ import { search } from "../../src/icons.js";
 import star from "../galery/star.png";
 
 const Bests = (props) => {
-  if (props.scrolll) {
-    setTimeout(() => {
-      const cardZoom = document.querySelectorAll(".cardZoom");
-      const observer = new IntersectionObserver((e) => {
-        e.forEach((entry) => {
-          entry.target.classList.toggle(
-            "animate-fadeInBigSmall",
-            entry.isIntersecting
-          );
-        });
-      });
-      cardZoom.forEach((cr) => observer.observe(cr));
-    }, 50);
-  }
-
   return (
     <div
       id="bests"
-      className=" group flex items-center justify-center flex-col m-2 md:m-3 cursor-pointer cardZoom "
+      className=" group flex items-center justify-center flex-col m-2 md:m-3 cursor-pointer  "
     >
       <div className=" relative ">
         <img
