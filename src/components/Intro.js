@@ -31,7 +31,7 @@ const Intro = (props) => {
         <div className="flex flex-col items-center justify-between bg-bg-150 w-20 md:p-3 rounded-lg">
           <div className="font-bold text-2xl text-black">01</div>
           <p className="text-center text-gray-700">
-            Proffessional <br /> Project
+          <span className="text-[0.9rem]">Professional</span>   <br /> Project
           </p>
         </div>
         <div className="flex flex-col items-center justify-between bg-bg-150 w-20 md:p-3 rounded-lg">
