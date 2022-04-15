@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.22",
+    "@reach/router": "file:",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "axios": "^0.26.1",
+    "buttermilk": "^2.0.1",
     "emailjs-com": "^3.2.0",
+    "hookrouter": "^1.2.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-full-page": "^0.1.12",
@@ -21,7 +24,8 @@
     "react-scroll": "^1.8.6",
     "react-typing-effect": "^2.0.5",
     "tailwindcss-animation-delay": "^1.0.7",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "wouter": "^2.8.0-alpha.2"
   },
   "scripts": {
     "start": "react-scripts start",
